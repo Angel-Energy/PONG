@@ -1,6 +1,7 @@
 #include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>  // Добавлено для поддержки локали
 
 #define WIDTH 80
 #define HEIGHT 25
@@ -102,6 +103,7 @@ void update(GameState *state) {
 
 // Основная функция
 int main() {
+    setlocale(LC_ALL, "");  // Устанавливаем локаль на UTF-8
     initscr();  // Инициализация ncurses
     cbreak();   // Отключаем буферизацию ввода
     noecho();   // Отключаем отображение ввода
